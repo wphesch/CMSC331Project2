@@ -51,8 +51,13 @@ session_start ();
 					</div>
 
 					<div class="field">
-						<label for="ConfP">Room Number</label> <input id="RoomNum"
+						<label for="RoomNum">Room Number</label> <input id="RoomNum"
 							size="20" maxlength="10" type="text" name="RoomNum" required>
+					</div>
+					
+					<div class="field">
+						<label for="MeetingRoomNum">Meeting Room Number (Where To Meet With Students)</label> <input id="MeetingRoomNum"
+							size="20" maxlength="10" type="text" name="MeetingRoomNum" required>
 					</div>
 					<br>
 

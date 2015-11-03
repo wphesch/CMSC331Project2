@@ -7,6 +7,7 @@ $_SESSION["AdvL"] = $_POST["lastN"];
 $_SESSION["AdvUN"] = $_POST["UserN"];
 $_SESSION["AdvPW"] = $_POST["PassW"];
 $_SESSION["RoomNum"] = $_POST["RoomNum"];
+$_SESSION["MeetingRoomNum"] = $_POST["MeetingRoomNum"];
 $_SESSION["PassCon"] = false;
 
 //confirmed password equaled first password field, therefore proceed to next page.
