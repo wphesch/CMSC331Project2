@@ -1,6 +1,8 @@
 html{ 
-      background-color: 
-      #99CCFF; 
+      /*background-color: 
+      #99CCFF;*/
+      height:1000px;
+      background: -webkit-linear-gradient(#0066CC, #00CCFF) no-repeat; 
       font-family: Arial; 
       font-size: 13px; 
       position: relative; 
@@ -23,10 +25,10 @@ html{
       #login{ 
       color: #000; 
       background-color: #fff; 
-      margin: 100px auto 0; 
+      margin: 95px auto 0; 
       padding: 20px 20px 20px; 
       position: relative; 
-      width: 550px; 
+      width: 900px; 
       -webkit-border-radius: 8px; 
       -moz-border-radius: 8px; 
       border-radius: 8px; 
@@ -70,6 +72,8 @@ html{
         -moz-border-radius: 4px;
         -webkit-border-radius: 4px;
         width: 262px;
+
+
       }
 	  
 	  select{
@@ -117,7 +121,7 @@ html{
         height: 64px;
         padding: 0 16px;
 		position: center;
-		margin-left: 105px;
+		margin-left: 50px;
       }
       
       .button.go {
@@ -137,7 +141,8 @@ html{
       .field label{ 
       display: block; 
       font-weight: bold; 
-      font-size: 14px; 
+      font-size: 23px;
+   
       }
 	  
       .actions{ 
