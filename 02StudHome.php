@@ -4,9 +4,8 @@ session_start();
 
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    	<?php include('Header.php'); ?>
     <title>Student Advising Home</title>
-	<link rel='stylesheet' type='text/css' href='css/default.css'/>
   </head>
   <body>
     <div id="login">
@@ -83,5 +82,4 @@ session_start();
 	    </div>
 		</div>
 		</form>
-  </body>
-</html>
+  <?php include('Footer.php'); ?>

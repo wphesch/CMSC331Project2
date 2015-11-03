@@ -7,9 +7,8 @@ $COMMON = new Common ( $debug );
 
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+	<?php include('Header.php'); ?>
 <title>Cancel Appointment</title>
-<link href="css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="login">
@@ -66,5 +65,4 @@ $COMMON = new Common ( $debug );
 			</div>
 			</form>
 
-</body>
-</html>
+<?php include('Footer.php'); ?>

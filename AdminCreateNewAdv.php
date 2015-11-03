@@ -5,25 +5,8 @@ session_start ();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
 <title>Create New Admin</title>
-<link rel='stylesheet' type='text/css' href='css/default.css' />
-
-<script type="text/javascript">
-    //   window.onload = function () {
-    //       document.getElementById("PassW").onchange = validatePassword;
-    //       document.getElementById("ConfP").onchange = validatePassword;
-    //   }
-    //   function validatePassword(){
-    //     var pass2=document.getElementById("ConfP").value;
-    //     var pass1=document.getElementById("PassW").value;
-    //     if(pass1!=pass2)
-    //         document.getElementById("ConfP").setCustomValidity("Passwords Don't Match");
-    //     else
-    //         document.getElementById("PassW").setCustomValidity('');  
-    //     //empty string means no validation error
-    //   }
-    // </script>
+	<?php include('Header.php'); ?>
 </head>
 <body>
 	<div id="login">
@@ -88,5 +71,4 @@ session_start ();
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+<?php include('Footer.php'); ?>

@@ -9,9 +9,8 @@ $studID = $_SESSION["studID"];
 
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    	<?php include('Header.php'); ?>
     <title>View Appointment</title>
-	<link rel='stylesheet' type='text/css' href='css/default.css'/>
   </head>
   <body>
     <div id="login">
@@ -67,5 +66,4 @@ $studID = $_SESSION["studID"];
 	    </div>
 		</div>
 		</form>
-  </body>
-</html>
+<?php include('Footer.php'); ?>

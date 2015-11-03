@@ -21,9 +21,8 @@ while ( $row = mysql_fetch_row ( $rs ) ) {
 ?>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+	<?php include('Header.php'); ?>
 <title>Edit Student Information</title>
-<link href="css/default.css" rel="stylesheet" type="text/css">
 </head>
 
 <!--Provide a form for the student to edit their information-->
@@ -134,6 +133,4 @@ while ( $row = mysql_fetch_row ( $rs ) ) {
 			</div>
 			</form>
 
-</body>
-
-</html>
+<?php include('Footer.php'); ?>

@@ -4,9 +4,8 @@ session_start();
 
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
     <title>Exit Message</title>
-	<link rel='stylesheet' type='text/css' href='css/defsult.css'/>
+	<?php include('Header.php'); ?>
   </head>
   <body>
     <div id="login">
@@ -24,5 +23,4 @@ session_start();
 	    </div>
 		</div>
 		</form>
-  </body>
-</html>
+<?php include('Footer.php'); ?>

@@ -5,9 +5,8 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
     <title>Schedule Appointment</title>
-	<link rel='stylesheet' type='text/css' href='css/default.css'/>
+		<?php include('Header.php'); ?>
   </head>
   <body>
     <div id="login">
@@ -33,8 +32,4 @@ session_start();
 		</form>
    	</div>
 	</div>
-
-		
-  </body>
-  
-</html>
+<?php include('Footer.php'); ?>

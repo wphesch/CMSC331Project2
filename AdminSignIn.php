@@ -7,7 +7,7 @@ session_start();
   <head>
     <meta charset="UTF-8" />
     <title>UMBC COEIT Engineering and Computer Science Advising Admin Sign In</title>
-	<link rel='stylesheet' type='text/css' href='css/default.css'/>
+	<?php include('Header.php'); ?>
   </head>
   <body>
     <div id="login">
@@ -41,6 +41,4 @@ session_start();
 	    </div>
 	</div>
 	</form>
-  </body>
-  
-</html>
+  <<?php include('Footer.php'); ?>

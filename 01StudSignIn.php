@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
     <title>UMBC COEIT Engineering and Computer Science Advising Student Sign In</title>
-	<link rel='stylesheet' type='text/css' href='css/default.css'/>
+	<?php include('Header.php'); ?>
   </head>
   <body>
     <div id="login">
@@ -110,7 +109,4 @@
 		</form>
 
 <b><font color="red" size="5">This is in TESTING mode only!!! You are creating simulated appointments!!!</font></b>
-
-  </body>
-  
-</html>
+<?php include('Footer.php'); ?>

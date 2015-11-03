@@ -6,15 +6,8 @@ $_SESSION["Delete"] = false;
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
     <title>Edit Group Appointment</title>
-    <script type="text/javascript">
-    function saveValue(target){
-  var stepVal = document.getElementById(target).value;
-  alert("Value: " + stepVal);
-    }
-    </script>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+	<?php include('Header.php'); ?>
   </head> 
   
   <!--Prints out the lists of group appointments set up by this advisor-->
@@ -103,6 +96,4 @@ $_SESSION["Delete"] = false;
   </div>
 	<?php include('./workOrder/workButton.php'); ?>
   </div>
-  </body>
-  
-</html>
+<?php include('Footer.php'); ?>

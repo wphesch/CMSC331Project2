@@ -7,9 +7,8 @@ $COMMON = new Common($debug);
 
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+	<?php include('Header.php'); ?>
     <title>Select Advisor</title>
-	<link rel='stylesheet' type='text/css' href='css/default.css'/>
   </head>
   <body>
     <div id="login">
@@ -41,5 +40,4 @@ $COMMON = new Common($debug);
 		<input type="submit" name="home" class="button large" value="Cancel">
 		</form>
 		</div>
-  </body>
-</html>
+<?php include('Footer.php'); ?>

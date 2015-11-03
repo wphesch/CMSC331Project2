@@ -5,15 +5,8 @@ session_start ();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
 <title>Print Schedule</title>
-<script type="text/javascript">
-    function saveValue(target){
-	var stepVal = document.getElementById(target).value;
-	alert("Value: " + stepVal);
-    }
-    </script>
-<link href="css/default.css" rel="stylesheet" type="text/css">
+	<?php include('Header.php'); ?>
 </head>
 <body>
 	<div id="login">
@@ -51,9 +44,5 @@ session_start ();
 			</div>
 		</div>
 	<?php include('./workOrder/workButton.php'); ?>
-
-  
-
-</body>
-</html>
+<?php include('Footer.php'); ?>
 

@@ -11,9 +11,8 @@ $COMMON = new Common($debug);
 
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    	<?php include('Header.php'); ?>
     <title>Search for Appointment</title>
-	<link rel='stylesheet' type='text/css' href='css/default.css'/>
   </head>
   <body>
     <div id="login">
@@ -156,11 +155,4 @@ $COMMON = new Common($debug);
 		<div class="bottom">
 		<p>If the Major category is followed by a blank, then it is open for all majors.</p>
 		</div>
-  </body>
-</html>
-
-<?php
-
-
-
-?>
+<?php include('Footer.php'); ?>

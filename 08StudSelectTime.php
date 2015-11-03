@@ -24,9 +24,8 @@ $_SESSION["roomNumber"] = $row[5];
 
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <?php include('Header.php'); ?>
     <title>Select Appointment</title>
-	<link rel='stylesheet' type='text/css' href='css/default.css'/>
 
   </head>
   <body>
@@ -84,5 +83,4 @@ $_SESSION["roomNumber"] = $row[5];
 		<p>Note: Appointments are maximum 30 minutes long.</p>
 		<p style="color:red">If there are no more open appointments, contact your advisor or click <a href='02StudHome.php'>here</a> to start over.</p>
 		</div>
-  </body>
-</html>
+<?php include('Footer.php'); ?>

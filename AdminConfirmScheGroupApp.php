@@ -8,7 +8,7 @@ $COMMON = new Common($debug);
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+		<?php include('Header.php'); ?>
   </head>
   <body>
     <div id="login">
@@ -141,6 +141,4 @@ $COMMON = new Common($debug);
       </div>
 	</div>
 	</form>
-  </body>
-  
-</html>
+<?php include('Footer.php'); ?>

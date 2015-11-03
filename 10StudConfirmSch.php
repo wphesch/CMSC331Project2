@@ -6,9 +6,8 @@ if ($_POST ["appTime"] != null)
 
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+	<?php include('Header.php'); ?>
 <title>Confirm Appointment</title>
-<link rel='stylesheet' type='text/css' href='css/default.css' />
 </head>
 <body>
 	<div id="login">
@@ -94,5 +93,4 @@ if ($_POST ["appTime"] != null)
 				</form>
 			</div>
 
-</body>
-</html>
+<?php include('Footer.php'); ?>

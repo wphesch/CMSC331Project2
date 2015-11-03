@@ -8,15 +8,8 @@ $COMMON = new Common($debug);
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
     <title>Search Appointments</title>
-    <script type="text/javascript">
-    function saveValue(target){
-	var stepVal = document.getElementById(target).value;
-	alert("Value: " + stepVal);
-    }
-    </script>
-	<link rel='stylesheet' type='text/css' href='css/default.css'/>
+	<?php include('Header.php'); ?>
   </head>
   <body>
     <div id="login">
@@ -187,6 +180,4 @@ $COMMON = new Common($debug);
 
 	</div>
 	</form>
-  </body>
-  
-</html>
+<?php include('Footer.php'); ?>

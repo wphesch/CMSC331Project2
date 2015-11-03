@@ -13,9 +13,8 @@ $_SESSION["PassCon"] = false;
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+	<?php include('Header.php'); ?>
     <title>Admin Home</title>
-	<link rel='stylesheet' type='text/css' href='css/default.css'/>
   </head>
   <body>
     <div id="login">
@@ -58,8 +57,8 @@ $_SESSION["PassCon"] = false;
         </div>
 	</div>
 
-	<?php include('./workOrder/workButton.php'); ?>
+<!-- Footer -->
+<?php include('./workOrder/workButton.php'); ?>
+<?php include('Footer.php'); ?>
 
-</body>
-  
-</html>
+

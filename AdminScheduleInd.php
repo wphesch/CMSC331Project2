@@ -7,13 +7,7 @@ session_start();
   <head>
     <meta charset="UTF-8" />
     <title>Schedule Individual Appointment</title>
-    <script type="text/javascript">
-    function saveValue(target){
-	var stepVal = document.getElementById(target).value;
-	alert("Value: " + stepVal);
-    }
-    </script>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+    	<?php include('Header.php'); ?>
   </head>
   <body>
     <div id="login">
@@ -94,7 +88,4 @@ session_start();
 		<input type="submit" name="next" class="button large go" value="Return to Home">
 	</form>
 	<?php include('./workOrder/workButton.php'); ?>
-
-  </body>
-  
-</html>
+<?php include('Footer.php'); ?>

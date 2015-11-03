@@ -8,7 +8,7 @@ session_unset();
 session_destroy();
 
 //if we were logged in as a student, return to student login - otherwise, choice of student or admin sign in
-if($flag) { header("Location: 01StudSignIn.html"); }
-else { header("Location: StudentAdminSignIn.html"); }
+if($flag) { header("Location: 01StudSignIn.php"); }
+else { header("Location: StudentAdminSignIn.php"); }
 
 ?>

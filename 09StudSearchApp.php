@@ -78,5 +78,4 @@ $COMMON = new Common ( $debug );
 		</div>
 		</form>
 
-</body>
-</html>
+<?php include('Footer.php'); ?>
