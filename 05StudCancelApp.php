@@ -36,7 +36,8 @@ $COMMON = new Common ( $debug );
 					//grab the name and room number
 					if ($oldAdvisorID != 0) {
 						$oldAdvisorName = $row[8] . " " . $row[9];
-						$roomNumber = $row [12];
+						$advisorRoomNumber = $row[12];
+						$meetingRoomNumber = $row[13];
 					} else {
 						$oldAdvisorName = "Group";
 					}
@@ -45,7 +46,8 @@ $COMMON = new Common ( $debug );
 					echo "<h2>Current Appointment</h2>";
 					echo "<label for='info'>";
 					echo "Advisor: ", $oldAdvisorName, "<br>";
-					echo "Room Number: ", $roomNumber, "<br>";
+					echo "Advisor Room Number: ", $advisorRoomNumber, "<br>";
+					echo "Meeting Room Number: ", $meetingRoomNumber, "<br>";
 					echo "Appointment: ", date ( 'l, F d, Y g:i A', $oldDatephp ), "</label><br>";
 					?>		
 				</div>

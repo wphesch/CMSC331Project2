@@ -20,6 +20,8 @@ $advisorName = $row[1]." ".$row[2];
 
 $_SESSION["advisorName"] = $advisorName;
 $_SESSION["roomNumber"] = $row[5];
+$_SESSION["meetingRoomNumber"] = $row[6];
+
 ?>
 
 <html lang="en">

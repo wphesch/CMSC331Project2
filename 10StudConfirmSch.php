@@ -40,7 +40,8 @@ if ($_POST ["appTime"] != null)
 						
 						if ($oldAdvisorID != 0) {
 							$oldAdvisorName = $row[8] . " " . $row[9];
-							$oldRoomNumber = $row[12];
+							$oldAdvisorRoomNumber = $row[12];
+							$oldMeetingRoomNumber = $row[13];
 						} else {
 							$oldAdvisorName = "Group";
 						}
@@ -48,7 +49,8 @@ if ($_POST ["appTime"] != null)
 						echo "<h2>Previous Appointment</h2>";
 						echo "<label for='info'>";
 						echo "Advisor: ", $oldAdvisorName, "<br>";
-						echo "Room Number: ", $oldRoomNumber, "<br>";
+						echo "Advisor Room Number: ", $oldAdvisorRoomNumber, "<br>";
+						echo "Meeting Room Number: ", $oldMeetingRoomNumber, "<br>";
 						echo "Appointment: ", date ( 'l, F d, Y g:i A', $oldDatephp ), "</label><br>";
 					}
 					
@@ -65,6 +67,7 @@ if ($_POST ["appTime"] != null)
 					$currentDatephp = strtotime ( $_SESSION ["appTime"] );
 					$currentAdvisorName = $_SESSION["advisorName"];
 					$currentRoomNumber =  $_SESSION["roomNumber"];
+					$currentMeetingRoomNumber =  $_SESSION["meetingRoomNumber"];
 					
 					if ($currentAdvisorID == 0) {
 						$currentAdvisorName = "Group";
@@ -74,7 +77,8 @@ if ($_POST ["appTime"] != null)
 					echo "<h2>".$current_appointment."</h2>";
 					echo "<label for='newinfo'>";
 					echo "Advisor: ", $currentAdvisorName, "<br>";
-					echo "Room Number: ", $currentRoomNumber, "<br>";
+					echo "Advisor Room Number: ", $currentRoomNumber, "<br>";
+					echo "Meeting Room Number: ", $currentMeetingRoomNumber, "<br>";
 					echo "Appointment: ", date ( 'l, F d, Y g:i A', $currentDatephp ), "</label>";
 					?>
         		

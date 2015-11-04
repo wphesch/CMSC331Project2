@@ -41,8 +41,8 @@ $COMMON = new Common($debug);
 				else
 					$_SESSION["advisorName"] = $_SESSION["advisor"];
 				$_SESSION["advisor"] = $row[2];
-
 				$_SESSION["roomNumber"] = $row[12];
+				$_SESSION["meetingRoomNumber"] = $row[13];
 				break;
 			}
 			

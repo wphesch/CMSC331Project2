@@ -39,14 +39,16 @@ $studID = $_SESSION["studID"];
 				//if not a group appointment, grab the advisor information
 				if($advisorID != 0){
 					$advisorName = $row[8] . " " . $row[9];
-					$roomNumber = $row[12];
+					$advisorRoomNumber = $row[12];
+					$meetingRoomNumber = $row[13];
 				}
 				else{$advisorName = "Group";}
 			
 				//print out the information
 				echo "<label for='info'>";
 				echo "Advisor: ", $advisorName, "<br>";
-				echo "Room Number: ", $roomNumber, "<br>";
+				echo "Advisor Room Number: ", $advisorRoomNumber, "<br>";
+				echo "Meeting Room Number: ", $meetingRoomNumber, "<br>";
 				echo "Appointment: ", date('l, F d, Y g:i A', $datephp), "</label>";
 			}
 			else // something is up, and there DB table needs to be fixed
