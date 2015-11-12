@@ -22,13 +22,20 @@ $_SESSION["PassCon"] = false;
         <div class="top">
 	<h2> Hello 
 	<?php
-	if(!isset($_SESSION["UserN"])) // someone landed this page by accident
+	if(!isset($_SESSION["advisorID"])) // someone landed this page by accident
 	{
+		echo "Not Signed In";
 		return;
 	}		
+	
+	$rs = $COMMON->getAdvisorInfo($_SESSION["advisorID"]);
+	$row = mysql_fetch_row($rs);
+	
+	//retrieve information from database
+	
 	//print out firstname from session variable from login
-	echo $_SESSION["FirstName"] . " ";
-	echo $_SESSION["LastName"] . " ";
+	echo $row[1]  . " ";
+	echo $row[2] . " ";
 	//echo $_SESSION["advisorID"];
 	?>
 	

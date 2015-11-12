@@ -1,5 +1,15 @@
 <?php
+
 session_start ();
+
+//confirmed password did not equal first password field, therefore proceed to previous page to reenter password.
+if($_POST["PassW"] != $_POST["ConfP"]){
+	$_SESSION["PasswordsNotMatching"] = true;
+	header('Location: AdminCreateNewAdv.php');
+}
+
+ $_SESSION["PassCon"] = false;
+
 ?>
 
 <!DOCTYPE html>
@@ -17,12 +27,12 @@ session_start ();
 		<?php
 		
 		//grab the entered data from the previous page
-		$first = $_SESSION ["AdvF"];
-		$last = $_SESSION ["AdvL"];
-		$user = $_SESSION ["AdvUN"];
-		$pass = $_SESSION ["AdvPW"];
-		$roomnum = $_SESSION ["RoomNum"];
-		$meetingroomnum = $_SESSION ["MeetingRoomNum"];
+		$first = $_POST["firstN"];
+		$last = $_POST["lastN"];
+		$user =$_POST["UserN"];
+		$pass = $_POST["PassW"];
+		$roomnum = $_POST["RoomNum"];
+		$meetingroomnum = $_POST["MeetingRoomNum"];
 		
 		include ('CommonMethods.php');
 		$debug = false;

@@ -23,7 +23,7 @@ session_start ();
 		
 		<!-- Collect all the new user information from the form. -->
 		
-		<form action="AdminProcessCreateNew.php" method="post" name="Create">
+		<form action="AdminCreateNew.php" method="post" name="Create">
 					<div class="field">
 						<label for="firstN">First Name</label> <input id="firstN"
 							size="20" maxlength="50" type="text" name="firstN" required

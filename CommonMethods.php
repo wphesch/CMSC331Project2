@@ -13,6 +13,8 @@ class Common
 		$rs = $this->connect("web.coeadvising"); // db name really here
 		return $rs;
 	}
+	
+
 
 	
 	//Abbreviates the given major string to save space in the database
@@ -84,6 +86,14 @@ class Common
 		return $rs;
 	}			
 
+		function getAdvisorInfo($advisorID){
+		
+		$sql =  "SELECT * FROM `Proj2Advisors` WHERE `id` = '$advisorID'";
+		$rs = $this->executeQuery($sql, "Advising Appointments");
+		return $rs;
+	}
+	
+	
 } // ends class, NEEDED!!
 
 ?>
