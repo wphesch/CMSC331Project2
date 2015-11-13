@@ -90,8 +90,34 @@ class Common
 		
 		$sql =  "SELECT * FROM `Proj2Advisors` WHERE `id` = '$advisorID'";
 		$rs = $this->executeQuery($sql, "Advising Appointments");
-		return $rs;
+		$row = mysql_fetch_row ( $rs );
+		return $row;
 	}
+	
+	function getStudentInfo($studentID){
+		
+		$sql =  "SELECT * FROM `Proj2Students` WHERE `id` = '$studentID'";
+		$rs = $this->executeQuery($sql, "Advising Appointments");
+		$row = mysql_fetch_row ( $rs );
+		return $row;
+	}
+	
+	
+	//small function to abbreviate major to save space in the database
+function abbreviateMajor($major)
+{
+	if($major == "Engineering Undecided"){
+		return "ENGR";
+	}elseif($major == "Mechanical Engineering")	{
+		return  "MENG"	;
+	}elseif($major == "Chemical Engineering")	{
+		return  "CENG"	;
+	}elseif($major == "Computer Science")	{
+		return  "CMSC"	;
+	}elseif($major == "Computer Engineering")	{
+		return  "CMPE"	;
+	}				
+}
 	
 	
 } // ends class, NEEDED!!

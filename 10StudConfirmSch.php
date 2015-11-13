@@ -22,12 +22,15 @@ if ($_POST ["appTime"] != null)
 					include ('CommonMethods.php');
 					$COMMON = new Common ( $debug );
 					
-					//grab the data from the previous page
-					$firstn = $_SESSION ["firstN"];
-					$lastn = $_SESSION ["lastN"];
 					$studid = $_SESSION ["studID"];
-					$major = $_SESSION ["major"];
-					$email = $_SESSION ["email"];
+					$row = $COMMON->getStudentInfo($studid);
+
+					
+					//grab the data from the previous page
+					$firstn = $row[1];
+					$lastn = $row[2];
+					$major = $row[5];
+					$email = $row[4];
 					
 					//if this was a rescheduling, grab the original schedule
 					if ($_SESSION ["resch"] == true) {
@@ -64,7 +67,10 @@ if ($_POST ["appTime"] != null)
 					
 					//grab their original requests
 					$currentAdvisorID = $_SESSION ["advisor"];
-					$currentDatephp = strtotime ( $_SESSION ["appTime"] );
+					$currentDatephp = strtotime ( $_SESSION ["appTime"] );4
+					$currentAdvisorRow = COMMON->getAdvisorInfo($currentAdvisorID);
+					
+					
 					$currentAdvisorName = $_SESSION["advisorName"];
 					$currentRoomNumber =  $_SESSION["roomNumber"];
 					$currentMeetingRoomNumber =  $_SESSION["meetingRoomNumber"];

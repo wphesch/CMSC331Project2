@@ -13,7 +13,12 @@ session_start();
         <div class="top">
 		<h2>Hello 
 		<?php
-			echo $_SESSION["firstN"];
+			$debug = false;
+			include ('CommonMethods.php');
+			$COMMON = new Common ( $debug );
+			$studid = $_SESSION["studID"];
+			$row = $COMMON->getStudentInfo($studid)
+			echo $row[1];
 		?>
         </h2>
 	    <div class="selections">
@@ -28,13 +33,7 @@ session_start();
 			$_SESSION["studExist"] = false;
 			$adminCancel = false;
 			$noApp = false;
-			$studid = $_SESSION["studID"];
 
-			//check to see if the student exists in the table yet
-			$sql = "select * from Proj2Students where `StudentID` = '$studid'";
-			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
-			$row = mysql_fetch_row($rs);
-			
 			
 			if (!empty($row)){
 				//the student exists

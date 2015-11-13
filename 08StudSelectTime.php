@@ -3,24 +3,21 @@ session_start();
 $debug = false;
 
 if(isset($_POST["advisor"])){
-	$_SESSION["advisor"] = $_POST["advisor"];
+	$_SESSION["advisorID"] = $_POST["advisor"];
 }
 
-$localAdvisor = $_SESSION["advisor"];
-$localMaj = $_SESSION["major"];
+$localAdvisor = $_SESSION["advisorID"];
+
 
 include('CommonMethods.php');
 $COMMON = new Common($debug);
 
-//grab and save the advisors name and room number
-$sql = "select * from Proj2Advisors where `id` = '$localAdvisor'";
-$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
-$row = mysql_fetch_row($rs);
-$advisorName = $row[1]." ".$row[2];
+$studentRow = $COMMON->getStudentInfo($_SESSION["studID"]);
+$localMaj = $studentRow[5];
 
-$_SESSION["advisorName"] = $advisorName;
-$_SESSION["roomNumber"] = $row[5];
-$_SESSION["meetingRoomNumber"] = $row[6];
+//grab the advisors info
+$advisorRow = $COMMON->getAdvisorInfo($localAdvisor);
+$advisorName = $advisorRow[1]." ".$advisorRow[2];
 
 ?>
 

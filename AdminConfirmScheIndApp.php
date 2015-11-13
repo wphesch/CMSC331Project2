@@ -100,11 +100,7 @@ $COMMON = new Common($debug);
 				}
 				$majorPrint = substr($majorPrint, 0, -2);
 			}
-			
-			//get advisor id
-			$User = $_SESSION["UserN"];
-			$Pass = $_SESSION["PassW"];
-			
+				
 			//we saved advisorid in a session, no need for sql query
 			$id = $_SESSION["advisorID"];
 			

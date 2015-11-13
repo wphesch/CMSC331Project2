@@ -37,12 +37,8 @@ $COMMON = new Common($debug);
 			while($row = mysql_fetch_row($rs)){
 				$_SESSION["appTime"] = $row[1];
 				if($_SESSION["advisor"] != "Group")
-					$_SESSION["advisorName"] = $row[8] . " " . $row[9];
-				else
-					$_SESSION["advisorName"] = $_SESSION["advisor"];
-				$_SESSION["advisor"] = $row[2];
-				$_SESSION["roomNumber"] = $row[12];
-				$_SESSION["meetingRoomNumber"] = $row[13];
+					$_SESSION["advisorID"] = $row[2];
+			
 				break;
 			}
 			

@@ -22,12 +22,15 @@ $debug = false;
 	include('CommonMethods.php');
 	$COMMON = new Common($debug);
 
+	$id =  $_SESSION["advisorID"];
+	$rs = $COMMON->getAdvisorInfo($id);
+	$row = mysql_fetch_array($rs, MYSQL_NUM); 
+	 
 	//grab all the session variables from log in credentials
 	//removed previous sql query here
-      $User = $_SESSION["UserN"];
-      $id =  $_SESSION["advisorID"];
-      $FirstName = $_SESSION["FirstName"];
-      $LastName = $_SESSION["LastName"];
+      $User = $row[3];
+      $FirstName = $row[1];
+      $LastName = $row[2];
 		
 	  echo("<h2>Schedule for $FirstName $LastName<br>$date</h2>");
       $date = date('Y-m-d', strtotime($date));
