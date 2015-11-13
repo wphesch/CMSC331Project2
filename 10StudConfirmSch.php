@@ -66,14 +66,12 @@ if ($_POST ["appTime"] != null)
 					
 					
 					//grab their original requests
-					$currentAdvisorID = $_SESSION ["advisor"];
-					$currentDatephp = strtotime ( $_SESSION ["appTime"] );4
-					$currentAdvisorRow = COMMON->getAdvisorInfo($currentAdvisorID);
-					
-					
-					$currentAdvisorName = $_SESSION["advisorName"];
-					$currentRoomNumber =  $_SESSION["roomNumber"];
-					$currentMeetingRoomNumber =  $_SESSION["meetingRoomNumber"];
+					$currentAdvisorID = $_SESSION ["advisorID"];
+					$currentDatephp = strtotime ( $_SESSION ["appTime"] );
+					$currentAdvisorRow = $COMMON->getAdvisorInfo($currentAdvisorID);
+					$currentAdvisorName = $currentAdvisorRow[1] . " ". $currentAdvisorRow[2];
+					$currentRoomNumber = $currentAdvisorRow[5];
+					$currentMeetingRoomNumber =  $currentAdvisorRow[6];
 					
 					if ($currentAdvisorID == 0) {
 						$currentAdvisorName = "Group";

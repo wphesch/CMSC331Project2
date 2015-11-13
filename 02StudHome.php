@@ -17,19 +17,18 @@ session_start();
 			include ('CommonMethods.php');
 			$COMMON = new Common ( $debug );
 			$studid = $_SESSION["studID"];
-			$row = $COMMON->getStudentInfo($studid)
+			
+			if($debug)
+				echo "studentID - $studid <br>";
+			
+			$row = $COMMON->getStudentInfo($studid);
 			echo $row[1];
 		?>
         </h2>
 	    <div class="selections">
 		<form action="StudProcessHome.php" method="post" name="Home">
 	    <?php
-			$debug = false;
-			
 
-			include('CommonMethods.php');
-			$COMMON = new Common($debug);
-			
 			$_SESSION["studExist"] = false;
 			$adminCancel = false;
 			$noApp = false;

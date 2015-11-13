@@ -9,12 +9,13 @@ if($_POST["finish"] == 'Cancel'){
 	$_SESSION["status"] = "none";
 }
 else{
-	$firstn = $_SESSION["firstN"];
-	$lastn = $_SESSION["lastN"];
 	$studid = $_SESSION["studID"];
-	$major = $_SESSION["major"];
-	$email = $_SESSION["email"];
-	$advisor = $_SESSION["advisor"];
+	$studentRow = $COMMON->getStudentInfo($studid);
+	$firstn = $studentRow[1];
+	$lastn = $studentRow[2];
+	$major = $studentRow[5];
+	$email = $studentRow[4];
+	$advisor = $_SESSION ["advisorID"];
 
 	if(debug) { echo("Advisor -> $advisor<br>\n"); }
 
@@ -30,15 +31,10 @@ else{
 	// ************************ Lupoli 9-1-2015
 	// we have to check to make sure someone did not steal that spot just before them!! (deadlock)
 	// if the spot was taken, need to stop and reset
-	if( isStillAvailable($apptime, $advisor) ) // then good, take that spot
-	{ } 
-	else // spot was taken, tell them to pick another
-	{
-		if($debug == false) 
-		{
-			header('Location: 13StudDenied.php');
-			return;
-		}
+	if( !isStillAvailable($apptime, $advisor) && $debug == false )  // then good, take that spot
+	{ 
+		header('Location: 13StudDenied.php');
+		return;
 	}
 
 	
@@ -107,7 +103,7 @@ else{
 	}
 
 	//update stud status to ''
-	$sql = "update `Proj2Students` set `Status` = '' where `StudentID` = '$studid'";
+	$sql = "update `Proj2Students` set `Status` = '' where `id` = $studid";
 	$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 
 }

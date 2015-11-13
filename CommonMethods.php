@@ -8,62 +8,56 @@ class Common
 	function Common($debug)
 	{
 		$this->debug = $debug; 
-		//$rs = $this->connect("jeanice1"); // db name really here
-		//$rs = $this->connect("web_coeadvising_prod"); // db name really here
 		$rs = $this->connect("web.coeadvising"); // db name really here
 		return $rs;
 	}
-	
-
-
 	
 	//Abbreviates the given major string to save space in the database
 	
 	
 	function abbreviateMajor($major)
-{
+	{
 
-	if($major == "Engineering Undecided"){
-		return "ENGR";
-	}elseif($major == "Mechanical Engineering")	{
-		return  "MENG"	;
-	}elseif($major == "Chemical Engineering")	{
-		return  "CENG"	;
-	}elseif($major == "Computer Science")	{
-		return  "CMSC"	;
-	}elseif($major == "Computer Engineering")	{
-		return  "CMPE"	;
+		if($major == "Engineering Undecided"){
+			return "ENGR";
+		}elseif($major == "Mechanical Engineering")	{
+			return  "MENG"	;
+		}elseif($major == "Chemical Engineering")	{
+			return  "CENG"	;
+		}elseif($major == "Computer Science")	{
+			return  "CMSC"	;
+		}elseif($major == "Computer Engineering")	{
+			return  "CMPE"	;
+		}
+
 	}
 
-}
 
 
-
-			//rewrites the array in abbreviated fashion
-				function abbreviateMajorsArray($majors){
-					$count = 0;
-					$abbreviatedMajors = array();
-					foreach($majors as $m){
+	//rewrites the array in abbreviated fashion
+	function abbreviateMajorsArray($majors){
+		$count = 0;
+		$abbreviatedMajors = array();
+		foreach($majors as $m){
 						
-						if($m == "Engineering Undecided"){
-							$abbreviatedMajors[$count] = "ENGR";
-						}elseif($m == "Mechanical Engineering")	{
-							$abbreviatedMajors[$count] = "MENG"	;
-						}elseif($m == "Chemical Engineering")	{
-							$abbreviatedMajors[$count] = "CENG"	;
-						}elseif($m == "Computer Science")	{
-							$abbreviatedMajors[$count] = "CMSC"	;
-						}elseif($m == "Computer Engineering")	{
-							$abbreviatedMajors[$count] = "CMPE"	;
-						}else{
-							$abbreviatedMajors[$count] = $m	;
-						}
-						$count = $count + 1;
-					}
-					return $abbreviatedMajors;
-				}
+			if($m == "Engineering Undecided"){
+				$abbreviatedMajors[$count] = "ENGR";
+			}elseif($m == "Mechanical Engineering")	{
+				$abbreviatedMajors[$count] = "MENG"	;
+			}elseif($m == "Chemical Engineering")	{
+				$abbreviatedMajors[$count] = "CENG"	;
+			}elseif($m == "Computer Science")	{
+				$abbreviatedMajors[$count] = "CMSC"	;
+			}elseif($m == "Computer Engineering")	{
+				$abbreviatedMajors[$count] = "CMPE"	;
+			}else{
+				$abbreviatedMajors[$count] = $m	;
+			}
+			$count = $count + 1;
+		}
+		return $abbreviatedMajors;
+	}
 		  
-	
 	
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 	
@@ -79,6 +73,8 @@ class Common
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 	
+	
+	
 	function executeQuery($sql, $filename) // execute query
 	{
 		if($this->debug == true) { echo("$sql <br>\n"); }
@@ -86,12 +82,21 @@ class Common
 		return $rs;
 	}			
 
-		function getAdvisorInfo($advisorID){
+	function getAdvisorInfo($advisorID){
 		
 		$sql =  "SELECT * FROM `Proj2Advisors` WHERE `id` = '$advisorID'";
 		$rs = $this->executeQuery($sql, "Advising Appointments");
 		$row = mysql_fetch_row ( $rs );
 		return $row;
+	}
+	
+	
+	function getIDOfStudentID($studentID){
+		
+		$sql =  "SELECT * FROM `Proj2Students` WHERE `StudentID` = '$studentID'";
+		$rs = $this->executeQuery($sql, "Advising Appointments");
+		$row = mysql_fetch_row ( $rs );
+		return $row[0];
 	}
 	
 	function getStudentInfo($studentID){
@@ -102,22 +107,30 @@ class Common
 		return $row;
 	}
 	
+	function getStudentAdvisor($studentID){
+		
+		$sql =  "SELECT * FROM `Proj2Appointments` WHERE `EnrolledID` like '%$studentID%' ";
+		$rs = $this->executeQuery($sql, "Advising Appointments");
+		$row = mysql_fetch_row ( $rs );
+		return $row[2];
+	}
 	
-	//small function to abbreviate major to save space in the database
-function abbreviateMajor($major)
-{
-	if($major == "Engineering Undecided"){
-		return "ENGR";
-	}elseif($major == "Mechanical Engineering")	{
-		return  "MENG"	;
-	}elseif($major == "Chemical Engineering")	{
-		return  "CENG"	;
-	}elseif($major == "Computer Science")	{
-		return  "CMSC"	;
-	}elseif($major == "Computer Engineering")	{
-		return  "CMPE"	;
-	}				
-}
+	function getStudentAppointmentTime($studentID){
+	
+		$sql =  "SELECT * FROM `Proj2Appointments` WHERE `EnrolledID` like '%$studentID%' ";
+		$rs = $this->executeQuery($sql, "Advising Appointments");
+		$row = mysql_fetch_row ( $rs );
+		return $row[1];
+	}
+	
+	function getStudentsSharingAppointment($studentID){
+		
+		$sql =  "SELECT * FROM `Proj2Appointments` WHERE `EnrolledID` like '%$studentID%' ";
+		$rs = $this->executeQuery($sql, "Advising Appointments");
+		$row = mysql_fetch_row ( $rs );
+		return $row[4];
+	}
+	
 	
 	
 } // ends class, NEEDED!!

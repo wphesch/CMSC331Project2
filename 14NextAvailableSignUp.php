@@ -3,11 +3,14 @@ ob_start();
 session_start();
 $debug = false;
 
-$localMaj = $_SESSION["major"];
+
 
 include('CommonMethods.php');
 $COMMON = new Common($debug);
 
+
+$studentRow = $COMMON->getStudentInfo($_SESSION["studID"]);
+$localMaj = $studentRow[5];
 
 			$curtime = time();
 
@@ -20,7 +23,7 @@ $COMMON = new Common($debug);
 				where $temp `EnrolledNum` = 0 
 					and (`Major` like '%$localMaj%' or `Major` = '') and `Time` > '".date('Y-m-d H:i:s')."' order by `Time` ASC limit 1";
 				$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
-				
+				$row = mysql_fetch_row ( $rs );
 				echo $sql;
 				echo $row[12];
 			}

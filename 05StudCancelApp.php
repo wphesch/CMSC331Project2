@@ -18,11 +18,16 @@ $COMMON = new Common ( $debug );
 				<div class="field">
 				<?php
 					//grab info from the previous page
-					$firstn = $_SESSION ["firstN"];
-					$lastn = $_SESSION ["lastN"];
+					
 					$studid = $_SESSION ["studID"];
-					$major = $_SESSION ["major"];
-					$email = $_SESSION ["email"];
+					$studentRow = $COMMON->getStudentInfo($studid );
+					$localMaj = $studentRow[5];
+					
+					$firstn = $studentRow[1];
+					$lastn = $studentRow[2];
+					
+					$major = $studentRow[5];
+					$email = $studentRow[4];
 					
 					//grab the appointments for this student
 					$sql = "select * from Proj2Appointments a left join Proj2Advisors b on a.`AdvisorID` = b.`id` where `EnrolledID` like '%$studid%'";

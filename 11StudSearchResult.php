@@ -24,6 +24,10 @@ $COMMON = new Common($debug);
 			<p>Showing results for: </p>
 			<?php
 			
+			
+				$studentRow = $COMMON->getStudentInfo($_SESSION["studentID"])
+				$localMaj = $studentRow[5];
+			
 				//grab the search parameters from the previous page
 				$date = $_POST["date"];
 				$times = $_POST["time"];
@@ -82,7 +86,7 @@ $COMMON = new Common($debug);
 				
 				//filter by major
 				//order by time
-				$orderByAndMajor =   " and `Major` like '%".$_SESSION['major']."%' order by `Time` ASC Limit 30";
+				$orderByAndMajor =   " and `Major` like '%". $localMaj ."%' order by `Time` ASC Limit 30";
 				
 				//filter dates/times
 				if(empty($times)){
