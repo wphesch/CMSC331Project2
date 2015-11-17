@@ -5,11 +5,14 @@ $debug = false;
 include ('CommonMethods.php');
 $COMMON = new Common ( $debug );
 
-$studentRow = $COMMON->getStudentInfo($_SESSION["studID"])
+
+
+
+$studentRow = $COMMON->getStudentInfo($_SESSION["studID"]);
 $localMaj = $studentRow[5];
-$firstName = $studentRow [1];
-$lastName = $studentRow [2];
-$email = $studentRow [4];
+$firstName = $studentRow[1];
+$lastName = $studentRow[2];
+$email = $studentRow[4];
 
 
 ?>
