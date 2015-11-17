@@ -23,7 +23,7 @@ $COMMON = new Common($debug);
 			<?php
 			
 			
-				$studentRow = $COMMON->getStudentInfo($_SESSION["studentID"])
+				$studentRow = $COMMON->getStudentInfo($_SESSION["studentID"]);
 				$localMaj = $studentRow[5];
 			
 				//grab the search parameters from the previous page

@@ -46,6 +46,6 @@ $localMaj = $studentRow[5];
 			
 				break;
 			}
-			
+			//echo var_dump($_SESSION);
 			header('Location: 10StudConfirmSch.php');
 		?>

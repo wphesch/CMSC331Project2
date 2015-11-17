@@ -20,6 +20,8 @@ if ($_POST ["appTime"] != null)
 					<?php
 					$debug = false;
 					include ('CommonMethods.php');
+					//echo var_dump($_SESSION);
+
 					$COMMON = new Common ( $debug );
 					
 					$studid = $_SESSION ["studID"];
@@ -77,21 +79,27 @@ if ($_POST ["appTime"] != null)
 						$currentAdvisorName = "Group";
 					}
 					
-					//print out the information
+
 					echo "<h2>".$current_appointment."</h2>";
-					echo "<label for='newinfo'>";
-					echo "Advisor: ", $currentAdvisorName, "<br>";
-					echo "Advisor Room Number: ", $currentRoomNumber, "<br>";
-					echo "Meeting Room Number: ", $currentMeetingRoomNumber, "<br>";
-					echo "Appointment: ", date ( 'l, F d, Y g:i A', $currentDatephp ), "</label>";
+					if($_SESSION ["appTime"] != null){
+						//print out the information
+						echo "<label for='newinfo'>";
+						echo "Advisor: ", $currentAdvisorName, "<br>";
+						echo "Advisor Room Number: ", $currentRoomNumber, "<br>";
+						echo "Meeting Room Number: ", $currentMeetingRoomNumber, "<br>";
+						echo "Appointment: ", date ( 'l, F d, Y g:i A', $currentDatephp ), "</label>";
+					}else{
+						echo "<h2>No Appointment could be found <h2>";
+					}
+					
 					?>
         		
 				</div>
 				<div class="nextButton">
 		<?php
-		if ($_SESSION ["resch"] == true) {
+		if ($_SESSION ["resch"] == true && $_SESSION ["appTime"] != null) {
 			echo "<input type='submit' name='finish' class='button large go' value='Reschedule'>";
-		} else {
+		} else if($_SESSION ["appTime"] != null) {
 			echo "<input type='submit' name='finish' class='button large go' value='Submit'>";
 		}
 		?>
