@@ -1,25 +1,31 @@
 html{ 
       /*background-color: 
       #99CCFF;*/
-      height:1000px;
-      background: -webkit-linear-gradient(#0066CC, #00CCFF) no-repeat; 
-      font-family: Arial; 
-      font-size: 13px; 
+      height:100%;
+      background: -webkit-linear-gradient(#0066CC, #00CCcc) no-repeat fixed; 
+      font-family: Helvetica; 
+      font-size: 20px; 
       position: relative; 
+
       }
 
       body{ 
+      height:100%;
       margin: 0; 
       padding: 0; 
+
+
       }
 
       a{ 
       color: #07f; 
       text-decoration: none; 
+
       }
 
       a:hover{ 
       text-decoration: underline; 
+
       }
 
       #login{ 
@@ -32,6 +38,7 @@ html{
       -webkit-border-radius: 8px; 
       -moz-border-radius: 8px; 
       border-radius: 8px; 
+
       }
 
 	  h1{ 
@@ -41,6 +48,7 @@ html{
       line-height: 50px; 
       margin: 0; 
       padding: 0; 
+
       }
 	  
       h2{ 
@@ -50,15 +58,18 @@ html{
       line-height: 30px; 
       margin: 0; 
       padding: 0; 
+
       }
 
       ul{ 
       margin: 8px 20px; 
-      padding: 0; 
+      padding: 0;
+ 
       }
 
       li{ 
-      margin-top: 8px; 
+      margin-top: 8px;
+
       }
       
       input[type="text"],input[type="email"], textarea {
@@ -71,16 +82,17 @@ html{
         padding: 4px;
         -moz-border-radius: 4px;
         -webkit-border-radius: 4px;
-        width: 262px;
+        width: 350px;
 
 
       }
 	  
 	  select{
-	  font-size: 18px;
+	  font-size: 24px;
 	  font-family: Arial, Helvetica, sans-serif;
 	  color: #444;
 	  position: relative;
+
 	  }
       
       .button {
@@ -94,7 +106,7 @@ html{
         height: 25px;
         overflow: visible;
         padding: 0 12px;
-        margin: 5px auto 0;
+        margin: 10px auto 0;
         text-decoration: none;
         vertical-align: top;
         white-space: nowrap;
@@ -104,29 +116,32 @@ html{
         -webkit-appearance: none;
         -webkit-border-radius: 4px;
         line-height: 25px;
+
       }
       
       .button:hover {
         background-color: #87929D;
         color: #fff;
         text-decoration: none;
+
       }
       
       a.button.large {
         line-height: 32px;
+
       }
       
       .button.large {
         font-size: 32px;
-        height: 64px;
+        height: 45px;
         padding: 0 16px;
-		position: center;
-		margin-left: 50px;
+
       }
       
       .button.go {
         background-color: #66AA44;
         color: #FFF;
+
       }
       
       .button.go:hover {
@@ -135,13 +150,15 @@ html{
       }
        
       .field{ 
-      margin: 8px 0; 
+      margin: 8px 0;
+
       }
 
       .field label{ 
       display: block; 
       font-weight: bold; 
       font-size: 23px;
+
    
       }
 	  
@@ -158,7 +175,8 @@ html{
 
       .top{ 
       border-bottom: 1px solid #eee; 
-      padding-bottom: 12px; 
+      padding-bottom: 12px;
+      text-align:center 
       }
 
       .actions{ 
@@ -169,12 +187,17 @@ html{
       float: left; 
       font-size: 14px; 
       line-height: 32px; 
-      text-align: left; 
+   
       }
 
+      .nextButtonAdvising{
+        width: 700px ;
+  margin-right: auto ;
+      }
       p{ 
       margin: 0; 
-      padding: 0; 
+      padding: 0;
+ 
       }
 
       .login-create{ 
