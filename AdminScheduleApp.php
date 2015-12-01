@@ -19,7 +19,7 @@ session_start();
 <!-- Choose either a group or individual advising session -->
 	
 	<form method="post" action="AdminProcessSchedule.php">
-	<div class="nextButton">
+	<div class="nextButtonAdvising">
 		<input type="submit" name="next" class="button large go" value="Individual">
 		<input type="submit" name="next" class="button large go" value="Group" style="float: right;">
 	</div>
