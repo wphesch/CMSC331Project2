@@ -1,7 +1,15 @@
 <?php
 session_start ();
 if ($_POST ["appTime"] != null)
-	$_SESSION ["appTime"] = $_POST ["appTime"]; // radio button selection from previous form or from next available php
+	// radio button selection from previous form or from next available php
+	//Need to preserve app time for next page
+	if($_POST ["appTime"] != null){
+			$_SESSION["appTime"] = $_POST ["appTime"];
+			$appTime = $_POST ["appTime"];
+	}else{
+			$appTime =	$_SESSION["appTime"];
+	}
+
 ?>
 
 <html lang="en">
@@ -16,24 +24,24 @@ if ($_POST ["appTime"] != null)
 				<h1>Confirm Appointment</h1>
 				<div class="field">
 					<form action="StudProcessSch.php" method="post" name="SelectTime">
-					
+
 					<?php
 					$debug = false;
 					include ('CommonMethods.php');
 					//echo var_dump($_SESSION);
 
 					$COMMON = new Common ( $debug );
-					
+
 					$studid = $_SESSION ["studID"];
 					$row = $COMMON->getStudentInfo($studid);
 
-					
+
 					//grab the data from the previous page
 					$firstn = $row[1];
 					$lastn = $row[2];
 					$major = $row[5];
 					$email = $row[4];
-					
+
 					//if this was a rescheduling, grab the original schedule
 					if ($_SESSION ["resch"] == true) {
 						$sql = "select * from Proj2Appointments a
@@ -42,7 +50,7 @@ if ($_POST ["appTime"] != null)
 						$row = mysql_fetch_row ( $rs );
 						$oldAdvisorID = $row [2];
 						$oldDatephp = strtotime ( $row [1] );
-						
+
 						if ($oldAdvisorID != 0) {
 							$oldAdvisorName = $row[8] . " " . $row[9];
 							$oldAdvisorRoomNumber = $row[12];
@@ -50,7 +58,7 @@ if ($_POST ["appTime"] != null)
 						} else {
 							$oldAdvisorName = "Group";
 						}
-						
+
 						echo "<h2>Previous Appointment</h2>";
 						echo "<label for='info'>";
 						echo "Advisor: ", $oldAdvisorName, "<br>";
@@ -58,27 +66,27 @@ if ($_POST ["appTime"] != null)
 						echo "Meeting Room Number: ", $oldMeetingRoomNumber, "<br>";
 						echo "Appointment: ", date ( 'l, F d, Y g:i A', $oldDatephp ), "</label><br>";
 					}
-					
+
 					//did the user want the first available or did they choose a specific appointment?
 					//lets remind them on the page
 					if ($_SESSION ["nextPage"] == "nextAvailable")
 						$current_appointment = "First Available Appointment";
 					else
 						$current_appointment = "Current Appointment";
-					
-					
+
+
 					//grab their original requests
 					$currentAdvisorID = $_SESSION ["advisorID"];
-					$currentDatephp = strtotime ( $_SESSION ["appTime"] );
+					$currentDatephp = strtotime ( $appTime );
 					$currentAdvisorRow = $COMMON->getAdvisorInfo($currentAdvisorID);
 					$currentAdvisorName = $currentAdvisorRow[1] . " ". $currentAdvisorRow[2];
 					$currentRoomNumber = $currentAdvisorRow[5];
 					$currentMeetingRoomNumber =  $currentAdvisorRow[6];
-					
+
 					if ($currentAdvisorID == 0) {
 						$currentAdvisorName = "Group";
 					}
-					
+
 
 					echo "<h2>".$current_appointment."</h2>";
 					if($_SESSION ["appTime"] != null){
@@ -91,15 +99,15 @@ if ($_POST ["appTime"] != null)
 					}else{
 						echo "<h2>No Appointment could be found <h2>";
 					}
-					
+
 					?>
-        		
+
 				</div>
 				<div class="nextButton">
 		<?php
-		if ($_SESSION ["resch"] == true && $_SESSION ["appTime"] != null) {
+		if ($_SESSION ["resch"] == true) {
 			echo "<input type='submit' name='finish' class='button large go' value='Reschedule'>";
-		} else if($_SESSION ["appTime"] != null) {
+		} else  {
 			echo "<input type='submit' name='finish' class='button large go' value='Submit'>";
 		}
 		?>

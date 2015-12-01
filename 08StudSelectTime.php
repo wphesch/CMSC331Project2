@@ -37,14 +37,14 @@ $advisorName = $advisorRow[1]." ".$advisorRow[2];
 	    <?php
 
 // http://php.net/manual/en/function.time.php fpr SQL statements below
-// Comparing timestamps, could not remember. 
+// Comparing timestamps, could not remember.
 
 			$curtime = time();
 
 			if ($_SESSION["advisor"] != "Group")  // for individual conferences only
-			{ 
-				$sql = "select * from Proj2Appointments where $temp `EnrolledNum` = 0 
-					and (`Major` like '%$localMaj%' or `Major` = '') and `Time` > '".date('Y-m-d H:i:s')."' and `AdvisorID` = ".$_POST['advisor']." 
+			{
+				$sql = "select * from Proj2Appointments where $temp `EnrolledNum` = 0
+					and (`Major` like '%$localMaj%' or `Major` = '') and `Time` > '".date('Y-m-d H:i:s')."' and `AdvisorID` = ".$localAdvisor."
 					order by `Time` ASC limit 30";
 				$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 				echo "<h2>Individual Advising</h2><br>";
@@ -60,7 +60,7 @@ $advisorName = $advisorRow[1]." ".$advisorRow[2];
 				echo "<h2>Group Advising</h2><br>";
 				echo "<label for='prompt'>Select appointment:</label><br>";
 			}
-			
+
 			//print out each time slot
 			while($row = mysql_fetch_row($rs)){
 				$datephp = strtotime($row[1]);
