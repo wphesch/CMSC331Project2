@@ -16,7 +16,7 @@ session_start();
 	<form action="StudProcessType.php" method="post" name="SelectType">
 	
 	
-	<div class="nextButton">
+	<div class="nextButtonAdvising">
 	
 		<!--Choose an individual or group appointment -->
 		<input type="submit" name="type" class="button large go" value="Individual">
