@@ -1,6 +1,6 @@
 <?php
 session_start();
-$debug = false;
+$debug = true;
 ?>
 
 <!DOCTYPE html>
@@ -18,35 +18,34 @@ $debug = false;
 
 	$date = $_POST["date"];
 	$type = $_POST["type"];
-			
+
 	include('CommonMethods.php');
 	$COMMON = new Common($debug);
 
 	$id =  $_SESSION["advisorID"];
-	$rs = $COMMON->getAdvisorInfo($id);
-	$row = mysql_fetch_array($rs, MYSQL_NUM); 
-	 
+	$row = $COMMON->getAdvisorInfo($id);
+
 	//grab all the session variables from log in credentials
 	//removed previous sql query here
       $User = $row[3];
       $FirstName = $row[1];
       $LastName = $row[2];
-		
+
 	  echo("<h2>Schedule for $FirstName $LastName<br>$date</h2>");
       $date = date('Y-m-d', strtotime($date));
-	
+
 	//if individual and group schedule were requested, display both
 	if($_POST["type"] == 'Both')
 	{
 		displayGroup($id, $date);
 		displayIndividual($id, $date);
 	}
-	
+
 	//otherwise just print one
 	elseif($_POST["type"] == 'Individual') { displayIndividual($id, $date); }
 	//or the other
 	elseif($_POST["type"] == 'Group') { displayGroup($id, $date); }
-	
+
 	else { echo("Selection invalid"); }
 
 ?>
@@ -61,7 +60,7 @@ $debug = false;
 	</div>
 
   </body>
-  
+
 </html>
 
 
@@ -71,7 +70,7 @@ function displayGroup($id, $date)
 {
 	global $debug; global $COMMON;
 
-	$sql = "SELECT `Time`, `Major`, `EnrolledID`, `EnrolledNum`, `Max` FROM `Proj2Appointments` 
+	$sql = "SELECT `Time`, `Major`, `EnrolledID`, `EnrolledNum`, `Max` FROM `Proj2Appointments`
 	WHERE `Time` LIKE '$date%' AND `AdvisorID` = 0 AND `MAX` > 1 ORDER BY `Time` ";
 
 	// ******************************************************************
@@ -92,7 +91,7 @@ function displayGroup($id, $date)
 	echo("<tr><td width='60px'>Time:</td><td>Majors Included:</td><td>students enrolled</td><td>Number of seats</td></tr>\n");
 
 	//print out each appointment
-        while ($row = mysql_fetch_array($rs, MYSQL_NUM)) 
+        while ($row = mysql_fetch_array($rs, MYSQL_NUM))
 	{
 		echo("<tr>");
 		echo("<td>".date('g:i A', strtotime($row[0]))."</td>");
@@ -106,11 +105,11 @@ function displayGroup($id, $date)
 
 function displayIndividual($id, $date)
 {
-	
+
 	//grab the individual schedule for this day and id
 	global $debug; global $COMMON;
 
-        $sql = "SELECT `Time`, `Major`, `EnrolledID` FROM `Proj2Appointments` 
+        $sql = "SELECT `Time`, `Major`, `EnrolledID` FROM `Proj2Appointments`
         WHERE `Time` LIKE '$date%' AND `AdvisorID` = $id AND `MAX` = 1 ORDER BY `Time`";
         $rs = $COMMON->executeQuery($sql, "Advising Appointments");
 	$matches = mysql_num_rows($rs); // see how many rows were collected by the query
@@ -122,7 +121,7 @@ function displayIndividual($id, $date)
 	echo("<tr><td width='60px'>Time:</td><td>Majors Included:</td><td>Student's name</td><td>Student ID</td></tr>\n");
 
 	//print out each appointment
-        while ($row = mysql_fetch_array($rs, MYSQL_NUM)) 
+        while ($row = mysql_fetch_array($rs, MYSQL_NUM))
 	{
 		echo("<tr>");
 		echo("<td>".date('g:i A', strtotime($row[0]))."</td>");

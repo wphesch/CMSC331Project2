@@ -13,6 +13,7 @@ $localMaj = $studentRow[5];
 $firstName = $studentRow[1];
 $lastName = $studentRow[2];
 $email = $studentRow[4];
+$studentID = $studentRow[3];
 
 
 ?>
@@ -31,7 +32,7 @@ $email = $studentRow[4];
 					Edit Student Information<span class="login-create"></span>
 				</h2>
 				<form action="StudProcessEdit.php" method="post" name="Edit">
-				
+
 					<!--Adjust first name-->
 					<div class="field">
 						<label for="firstN">First Name</label> <input id="firstN"
@@ -44,13 +45,13 @@ $email = $studentRow[4];
 							maxlength="50" type="text" name="lastN" required
 							value=<?php echo $lastName?>>
 					</div>
-				
+
 					<!--Show student id-->
 					<div class="field">
 						<label for="studID">Student ID</label> <input id="studID"
 							size="30" maxlength="7" type="text" pattern="[A-Za-z]{2}[0-9]{5}"
 							title="AB12345" name="studID" disabled
-							value=<?php echo $_SESSION["studID"]?>>
+							value=<?php echo $studentID ?>>
 					</div>
 					<div class="field">
 						<label for="email">E-mail</label> <input id="email" size="30"
@@ -58,9 +59,9 @@ $email = $studentRow[4];
 							value=<?php echo $email?>>
 					</div>
 					<div class="field">
-					
+
 						<!--Handle abbreviated majors but print them out fully-->
-						
+
 						<label for="major">Major</label> <select id="major" name="major">
 							<option
 								<?php if($localMaj == 'CMPE'){echo("selected");}?>>Computer
@@ -120,13 +121,13 @@ $email = $studentRow[4];
 -->
 						</select>
 					</div>
-					
+
 					<!--proceed to edit the information-->
 					<div class="nextButton">
 						<input type="submit" name="save" class="button large go"
 							value="Save">
 					</div>
-			
+
 			</div>
 			</form>
 
