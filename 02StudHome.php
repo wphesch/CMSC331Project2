@@ -11,6 +11,7 @@ session_start();
     <div id="login">
       <div id="form">
         <div class="top">
+		<div class="name">
 		<h2>Hello 
 		<?php
 			$debug = false;
@@ -25,6 +26,7 @@ session_start();
 			echo $row[1];
 		?>
         </h2>
+	</div>
 	    <div class="selections">
 		<form action="StudProcessHome.php" method="post" name="Home">
 	    <?php
@@ -54,20 +56,27 @@ session_start();
 				if($adminCancel == true){
 					echo "<p style='color:red'>The advisor has cancelled your appointment! Please schedule a new appointment.</p>";
 				}
-				//allows the user to select a new appointment
-				echo "<button type='submit' name='selection' class='button large selection' value='Signup'>Signup for an appointment</button><br>";
-				echo "<button type='submit' name='selection' class='button large selection' value='NextAvailableSignup'>Signup for next available appointment</button><br>";
+				echo "<button type='submit' name='selection' class='button home selection' value='Signup'><img src='images/sign_up.png' width='50' height='50' align = 'left'/>
+				Signup for an appointment</button><br>";
 			}
+			//if appointment has been set up
 			else{
-				
-				//allows the user to view, reschedule or cancel their appointment
-				echo "<button type='submit' name='selection' class='button large selection' value='View'>View my appointment</button><br>";
-				echo "<button type='submit' name='selection' class='button large selection' value='Reschedule'>Reschedule my appointment</button><br>";
-				echo "<button type='submit' name='selection' class='button large selection' value='Cancel'>Cancel my appointment</button><br>";
+
+				echo "<button type='submit' name='selection' class='button home selection' value='View'> <img src='images/eye.png' width='50' height='50' align = 'left'/>
+				View my appointment</button><br>";
+
+				echo "<button type='submit' name='selection' class='button home selection' value='Reschedule'> <img src='images/Clipboard.png' width='50' height='50' align = 'left'/>
+				Reschedule my appointment</button><br>";
+
+				echo "<button type='submit' name='selection' class='button home selection' value='Cancel'> <img src='images/x.png' width='50' height='50' align = 'left'/>
+				Cancel my appointment</button><br>";
 			}
-			
-			echo "<button type='submit' name='selection' class='button large selection' value='Search'>Search for appointment</button><br>";
-			echo "<button type='submit' name='selection' class='button large selection' value='Edit'>Edit student information</button><br>";
+			echo "<button type='submit' name='selection' class='button home selection' value='Search'> <img src='images/glass.png' width='50' height='50' align = 'left'/>
+			Search for appointment</button><br>";
+
+			echo "<button type='submit' name='selection' class='button home selection' value='Edit'> <img src='images/pencil.png' width='50' height='50' align = 'left'/>
+			Edit student information</button><br>";
+
 		?>
 		</form>
         </div>
