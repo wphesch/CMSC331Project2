@@ -1,6 +1,6 @@
 <?php
 session_start ();
-if ($_POST ["appTime"] != null)
+
 	// radio button selection from previous form or from next available php
 	//Need to preserve app time for next page
 	if($_POST ["appTime"] != null){

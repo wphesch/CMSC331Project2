@@ -5,7 +5,7 @@ session_start();
 
 if ($_POST["next"] == "Group"){
 	//go to group advising page
-	$_SESSION["advisorID"] = $_POST["next"];
+	$_SESSION["advisorGroup"] = $_POST["next"];
 	header('Location: AdminScheduleGroup.php');
 }
 elseif ($_POST["next"] == "Individual"){

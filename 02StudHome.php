@@ -12,16 +12,16 @@ session_start();
       <div id="form">
         <div class="top">
 		<div class="name">
-		<h2>Hello 
+		<h2>Hello
 		<?php
 			$debug = false;
 			include ('CommonMethods.php');
 			$COMMON = new Common ( $debug );
 			$studid = $_SESSION["studID"];
-			
+
 			if($debug)
 				echo "studentID - $studid <br>";
-			
+
 			$row = $COMMON->getStudentInfo($studid);
 			echo $row[1];
 		?>
@@ -35,16 +35,16 @@ session_start();
 			$adminCancel = false;
 			$noApp = false;
 
-			
+
 			if (!empty($row)){
 				//the student exists
 				$_SESSION["studExist"] = true;
-				
+
 				//was the appointment cancelled by an advisor?
 				if($row[6] == 'C'){
 					$adminCancel = true;
 				}
-				
+
 				//the user doesn't currently have an appointment
 				if($row[6] == 'N'){
 					$noApp = true;
@@ -58,6 +58,10 @@ session_start();
 				}
 				echo "<button type='submit' name='selection' class='button home selection' value='Signup'><img src='images/sign_up.png' width='50' height='50' align = 'left'/>
 				Signup for an appointment</button><br>";
+
+        echo "<button type='submit' name='selection' class='button home selection' value='NextAvailableSignup'><img src='images/sign_up.png' width='50' height='50' align = 'left'/>
+				Next available appointment</button><br>";
+
 			}
 			//if appointment has been set up
 			else{
@@ -80,9 +84,9 @@ session_start();
 		?>
 		</form>
         </div>
-		
+
 		<!--Logout -->
-		
+
 		<form action="Logout.php" method="post" name="Logout">
 	    <div class="logoutButton">
 			<input type="submit" name="logout" class="button large go" value="Logout">
