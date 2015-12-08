@@ -94,10 +94,11 @@ html{
 	  position: relative;
 
 	  }
-      
+
       .button {
+
         background-color: #768089;
-        border: none;
+       border: 0;
         color: #fff;
         cursor: pointer;
         display: inline-block;
@@ -116,7 +117,7 @@ html{
         -webkit-appearance: none;
         -webkit-border-radius: 4px;
         line-height: 25px;
-
+    	vertical-align: top;
       }
       
       .button:hover {
@@ -135,22 +136,46 @@ html{
         font-size: 32px;
         height: 45px;
         padding: 0 16px;
+background-color: #CC4444;
 
       }
+
+.button.home {
+        font-size: 32px;
+        height: 90px;
+	width: 60%;
+        padding: 0 16px;
+	text-align: center; 
+	line-height: 45px;
+
+      }
+
       
       .button.go {
-        background-color: #66AA44;
-        color: #FFF;
-
+        background-color: #edce00;
+        color: #000;
+ 
       }
       
       .button.go:hover {
-        background-color: #70B74E;
-        color: #FFF;
+        background-color: #e8e400;
+        color: #000;
       }
        
       .field{ 
       margin: 8px 0;
+
+      }
+
+ .name{ 
+      background-color: #122232;
+padding: 10px 10px 10px; 
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+color: #ffffff;
+ margin-right: -20px;
+ margin-left: -20px; 
+ margin-top: -20px; 
 
       }
 
@@ -204,7 +229,10 @@ html{
       font-size: 16px; 
       font-weight: normal; 
       }
-    
+    .statusMessage
+{
+font-size: 32px;
+}
       @media screen and (max-width: 767px){
         html, body { background-color: #fff; }
         #login { border-radius: 0; margin: 60px 0 0; width: 94%; padding: 3%; border-top: 1px solid #ddd; }
